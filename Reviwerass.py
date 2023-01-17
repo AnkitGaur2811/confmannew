@@ -12,10 +12,11 @@ def assgin(allreviewer,allpaperkeywords,assignedreview):
         matches = 0
         for x in allreviewer:
             if num_rev<=3:
-                for y in allreviewer[x]["key"]:
+                for y in x["interests"]:
+                    y = y.lower()
                     matches = fuct(allpaperkeywords,y,matches)
                     if matches==2:
-                        assignedreview.append(x)
+                        assignedreview.append(x["_id"])
                         num_rev = num_rev+1
                         matches = 0
                         break
